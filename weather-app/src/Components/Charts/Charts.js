@@ -2,16 +2,27 @@ import React from "react";
 
 const Charts = (props) => {
   return (
-    <div className="chart-wrapper pt-2 bg-light text-dark">
-      <h1>{props.wdate}</h1>
-      <div className="data-wrapper bg-light py-4">
-        <p className="mb-5 w-75 d-inline-flex text-dark">Temp: {props.wtemp}</p>
-        <p className="mb-5 w-75 d-inline-flex text-dark">
-          Relative Humidity: {props.whumid}%
-        </p>
-        <p className="mb-5 w-75 d-inline-flex text-dark">
-          Atmospheric Pressure: {props.wpressure} mb
-        </p>
+    <div className="card-wrapper p-5 bg-light border border-3 border-dark rounded-4 w-50">
+      <div className="table-wrapper bg-light text-dark d-flex flex-row justify-content-center">
+        <table className="table table-reflow m-0 table-light">
+          <thead>
+            <th className="text-start">{props.wdate}</th>
+          </thead>
+          <tbody>
+            <tr className="table-light table-group-divider">
+              <th className="text-start">Temperature:</th>
+              <td className="text-start">{props.wtemp}</td>
+            </tr>
+            <tr className="table-light">
+              <th className="text-start">Relative Humidity:</th>
+              <td className="text-start">{props.whumid}</td>
+            </tr>
+            <tr className="table-light">
+              <th className="text-start">Atmospheric Pressure:</th>
+              <td className="text-start">{props.wpressure}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

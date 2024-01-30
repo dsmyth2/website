@@ -1,13 +1,12 @@
 import "./App.css";
-import Charts from "./Components/Charts/Charts";
-import data from "./Data";
-import Hero from "./Components/Hero/Hero";
+import Charts from "./Components/Charts/Charts.js";
+import data from "./Data.js";
+import Hero from "./Components/Hero/Hero.js";
 
 function App() {
   const weather = data.map((item) => {
     return (
       <Charts
-        key={item.id}
         wdate={item.wdate}
         wtemp={item.wtemp}
         whumid={item.whumid}
@@ -16,9 +15,11 @@ function App() {
     );
   });
   return (
-    <div className="App">
+    <div className="text-center h-100 bg-light">
       <Hero />
-      <section className="weather-section-container">{weather}</section>
+      <section className="weather-section-container d-flex flex-column justify-content-center align-items-center gap-5">
+        {weather}
+      </section>
     </div>
   );
 }
