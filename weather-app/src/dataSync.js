@@ -34,13 +34,25 @@ const updateArray = async () => {
   lines.forEach((line) => {
     const [wdate, wtime, wtemp, whumid, wpressure] = line.split(/\s+/);
 
-    // Append new data to the existing array
-    Data.push({
-      wdate: `${wdate} ${wtime || ""}`, // Combine date and time, handle empty time
-      wtemp,
-      whumid,
-      wpressure,
-    });
+    // Check if data with the same wdate already exists in the array
+    const existingDataIndex = Data.findIndex(
+      (item) => item.wdate === `${wdate} ${wtime || ""}`
+    );
+
+    if (existingDataIndex === -1) {
+      // Data with the same wdate doesn't exist, so add it to the array
+      Data.push({
+        wdate: `${wdate} ${wtime || ""}`, // Combine date and time, handle empty time
+        wtemp,
+        whumid,
+        wpressure,
+      });
+    } else {
+      // Data with the same wdate already exists, you can choose to update or skip it
+      console.log(
+        `Data with wdate ${wdate} ${wtime || ""} already exists. Skipping...`
+      );
+    }
   });
 
   // Convert the array to a string

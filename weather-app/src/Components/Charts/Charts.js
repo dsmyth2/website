@@ -1,8 +1,9 @@
 import React from "react";
+import Data from "../../Data.js";
 
 const Charts = (props) => {
   return (
-    <div className="card-wrapper p-5 bg-light border border-3 border-dark rounded-4 w-50">
+    <div className="card-wrapper p-5 bg-light border border-3 border-dark rounded-4 w-25">
       <div className="table-wrapper bg-light text-dark d-flex flex-row justify-content-center">
         <table className="table table-reflow m-0 table-light">
           <thead>
